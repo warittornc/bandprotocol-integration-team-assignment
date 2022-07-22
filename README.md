@@ -190,5 +190,3 @@ file to simulate the handler functions
 
 If you have any doubts, questions or would like to request an extension, feel free to contact us at any time. You can
 reach us at talent@bandprotocol.com or through posting an issue in this repository.
-
-# bandprotocol-integration-team-assignment
