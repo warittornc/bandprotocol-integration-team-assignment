@@ -21,12 +21,14 @@ The package must be able to do the following features:
 ### Assignment rules
 
 The only allowed imports are those that are built directly into the
-[Python Standard Library](https://docs.python.org/3/library/) and the [requests](https://pypi.org/project/requests/)
-library.
+[Python Standard Library](https://docs.python.org/3/library/), [requests](https://pypi.org/project/requests/), 
+[aiohttp](https://pypi.org/project/aiohttp/3.8.1/), [httpx](https://pypi.org/project/httpx/) and 
+[urllib3](https://pypi.org/project/urllib3/).
 
 ### Expected folder structure
 
-You should design the code similar to how you would design a package. An example folder structure can be seen below:
+You should design the code similar to how you would design a package. A boilerplate structure will be given in this 
+repository and an example folder structure can be seen below:
 
     ...
     ├── band_assignment
@@ -41,6 +43,8 @@ You should design the code similar to how you would design a package. An example
     │   │ 
     │   ├── calculator              # Contains any modules that requires calculations
     │   │   ├── __init__.py
+    │   │   ├── median.py
+    │   │   ├── outlier.py
     │   │   └── ...
     │   │ 
     │   ├── structs                 # Contains custom structs/errors if any
@@ -51,11 +55,13 @@ You should design the code similar to how you would design a package. An example
     │   └── main.py                 # Contains the main function to run
     │
     ├── tests                       # Contains test scripts
-    │   └── demo.py                 # Demo script for using the package
-    │   └── tests.py                # unit-tests [Optional]
-    │   └── conftest.py             # conftest file [Optional]
+    │   ├── conftest.py             # Conftest file [Optional]
+    │   ├── demo.py                 # Demo script for using the package 
+    │   ├── test_cases.json         # Contains the test cases
+    │   └── tests.py                # Unit-tests [Optional]
     │    
-    └── README.md                   # Contains the final report
+    ├── README.md                   # Contains the task instructions
+    └── report.md                   # Contains the final report
 
 ### Get familiar with the APIs
 
@@ -101,12 +107,12 @@ exchange_prices = [23541.0, 1532.32, None]
 #### Example function
 
 ```python
-def filter_outliers(prices: List[float]):
+def filter_outliers(prices: List[float]) -> List[float]:
     # Insert logic here
     return filtered_prices
 
 
-def get_median_price(filtered_prices: List[float]):
+def get_median_price(filtered_prices: List[float]) -> float:
     # Insert logic here
     return median_price
 ```
@@ -169,13 +175,14 @@ results = {
 
 ### Test cases
 
-The test cases can be found in the `test_cases.json` file in this repository
+The test cases can be found under `tests/test_cases.json` in this repository.
 
 ### What we expect from you
 
 1. Think about how the code should be structured, follow [PEP 8](https://peps.python.org/pep-0008/) guidelines and use
    type hinting via the [typing](https://docs.python.org/3/library/typing.html) library.
-2. Consider factors such as API rate limit/weights and coding efficiency when designing your solution.
+2. Consider factors such as API rate limit/weights, coding efficiency and how long your function takes to complete when 
+   designing your solution.
 3. Include a demo in the demo.py file that showcases the results from the test cases.
 4. In the README.md, document all the technical decisions and trade-offs you've made, why you made those decisions or
    trade-offs, the specific outlier rejection method you've used and why you chose that method and any other feature
